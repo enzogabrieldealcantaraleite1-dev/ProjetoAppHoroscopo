@@ -37,7 +37,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="1730" height="-1"/>
+          <AbsoluteConstraints x="-10" y="-10" width="1730" height="-1"/>
         </Constraint>
       </Constraints>
 
@@ -248,6 +248,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Descobrir Signo"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDescobrirSignoActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -485,7 +488,7 @@
             <Component class="javax.swing.JLabel" name="fundoInicio">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\EnzoLeite\Documents\ProjetoAppHoroscopo\Horoscopo\src\main\resources\assets\fundo.jpg"/>
+                  <Image iconType="2" name="C:\Users\EnzoLeite\Documents\ProjetoAppHoroscopo\Horoscopo\src\main\resources\assets\zodiaco.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -522,21 +525,13 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tituloCaracteristicaAries" alignment="0" pref="476" max="32767" attributes="0"/>
-                                      <Component id="pfortesAries" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="pMelhorarAries" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane2" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="tituloCaracteristicaAries" alignment="0" pref="476" max="32767" attributes="0"/>
+                              <Component id="pfortesAries" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="pMelhorarAries" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -544,16 +539,16 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="tituloCaracteristicaAries" pref="96" max="32767" attributes="0"/>
+                          <Component id="tituloCaracteristicaAries" pref="63" max="32767" attributes="0"/>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                           <Component id="pfortesAries" max="32767" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" pref="105" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" pref="131" max="32767" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="pMelhorarAries" max="32767" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" pref="114" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" pref="121" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -592,12 +587,13 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="txFortesAries">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="14" style="0"/>
+                          <Font name="Segoe UI" size="24" style="0"/>
                         </Property>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="Corajoso, determinado, confiante, entusiasmado, &#xa;otimista, honesto e apaixonado por novos desafios."/>
+                        <Property name="text" type="java.lang.String" value="Coragem, iniciativa e determina&#xe7;&#xe3;o. &#xa;Gosta de novos desafios, &#xa;demonstra entusiasmo e tem facilidade&#xa; para tomar a frente de projetos."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -613,10 +609,10 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="14" style="0"/>
+                          <Font name="Segoe UI" size="24" style="0"/>
                         </Property>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="Impaciente, impulsivo, temperamental, pavio curto&#xa; e tend&#xea;ncia a agir antes de pensar."/>
+                        <Property name="text" type="java.lang.String" value="Desenvolver a paci&#xea;ncia, controlar a&#xa;impulsividade e ouvir outras opini&#xf5;es. &#xa;Refletir antes de agir pode evitar conflitos &#xa;e decis&#xf5;es precipitadas."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -626,7 +622,7 @@
             <Container class="javax.swing.JPanel" name="areaInformacoes">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="50" y="30" width="410" height="910"/>
+                  <AbsoluteConstraints x="50" y="10" width="410" height="920"/>
                 </Constraint>
               </Constraints>
 
@@ -635,7 +631,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="imgSigno" pref="0" max="32767" attributes="0"/>
+                          <Component id="imgSignoAries" pref="0" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -679,10 +675,10 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="imgSigno" min="-2" pref="573" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                          <Component id="tituloAries" pref="88" max="32767" attributes="0"/>
-                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                          <Component id="imgSignoAries" min="-2" pref="573" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="tituloAries" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="periodoAries" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="tfPeriodoAries" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -707,13 +703,13 @@
                               <Component id="numeroAries" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="tfNumeroAries" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="imgSigno">
+                <Component class="javax.swing.JLabel" name="imgSignoAries">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="2" name="C:\Users\EnzoLeite\Documents\ProjetoAppHoroscopo\Horoscopo\src\main\resources\assets\aries.jpg"/>
@@ -770,26 +766,46 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPeriodoAries">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="21 de mar&#xe7;o a 19 de abril"/>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="24" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="21/03 a 19/04"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfElementoAries">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="fogo"/>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="24" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Fogo"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPlanetaAries">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="marte"/>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="24" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Marte"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCorAries">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="24" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Vermelho"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfNumeroAries">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="24" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="9"/>
                   </Properties>
                 </Component>
@@ -821,7 +837,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
                                   <Component id="txPrevisaoAries" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -834,9 +850,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="previsaoAries" pref="52" max="32767" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="txPrevisaoAries" pref="273" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                           <Component id="btnAtualizarPrevisaoAries" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
@@ -859,11 +875,14 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea1">
+                    <Component class="javax.swing.JTextArea" name="txtPrevisaoAries">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="24" style="0"/>
+                        </Property>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="&quot;O dia promete ser din&#xe2;mico&#xa; e cheio de movimento para os arianos&#xa;. Sua autoconfian&#xe7;a ser&#xe1; a grande chave para abrir novas portas&#xa; no ambiente profissional e superar antigos obst&#xe1;culos&#xa;. No entanto, o alinhamento planet&#xe1;rio pede cautela com rea&#xe7;&#xf5;es imediatistas&#xa;. Respire fundo antes de responder a provoca&#xe7;&#xf5;es para manter o controle da situa&#xe7;&#xe3;o.&quot; "/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -932,19 +951,19 @@
                           <Component id="amorAries" max="32767" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="tfAmorAries" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="trabalhoAries" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="tfTrabalhoAries" max="32767" attributes="0"/>
-                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="saudeAries" max="32767" attributes="0"/>
-                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="tfSaudeAries" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="sorteAries" max="32767" attributes="0"/>
-                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="tfSorteAries" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -992,21 +1011,37 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfAmorAries">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="24" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="85%"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfTrabalhoAries">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="24" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="90%"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfSaudeAries">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="24" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="75%"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfSorteAries">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="24" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="80%"/>
                   </Properties>
                 </Component>
@@ -1063,11 +1098,10 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea2">
+                    <Component class="javax.swing.JTextArea" name="txtMensagemAries">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="&quot;N&#xe3;o espere pelas circunst&#xe2;ncias perfeitas para agir;&#xa; a sua coragem &#xe9; o que cria a oportunidade. Seja o l&#xed;der da sua pr&#xf3;pria jornada hoje!&quot; "/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1192,7 +1226,6 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="Paciente, persistente, confi&#xe1;vel, determinado,&#xa; pr&#xe1;tico, leal e com grande apre&#xe7;o pela estabilidade."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1208,7 +1241,6 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="&#x2022; Teimosos, possessivos, ciumentos&#xa;, resistentes a mudan&#xe7;as e inflex&#xed;veis diante de opini&#xf5;es alheias. "/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1361,29 +1393,14 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPeriodoTouro">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="20 de abril a 20 de maio"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfElementoTouro">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Terra"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPlanetaTouro">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="V&#xea;nus"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCorTouro">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Verde"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfNumeroTouro">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="6"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -1444,11 +1461,13 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea3">
+                    <Component class="javax.swing.JTextArea" name="txtPrevisaoTouro">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="24" style="0"/>
+                        </Property>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="&quot;O dia promete trazer estabilidade e muita produtividade para os taurinos.&#xa; Sua mente focada no lado pr&#xe1;tico da vida ajudar&#xe1; a resolver pend&#xea;ncias complexas com muita facilidade&#xa;. No entanto, o alinhamento planet&#xe1;rio &#xa;alerta para n&#xe3;o se fechar demais em suas pr&#xf3;prias certezas&#xa;. Ouvir novas ideias e ceder um pouco &#xa;ser&#xe1; fundamental para manter a harmonia ao seu redor.&quot; "/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1576,25 +1595,12 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfAmorAries1">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="80%"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfTrabalhoAries1">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value=" 90%"/>
-                    <Property name="toolTipText" type="java.lang.String" value=""/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfSaudeAries1">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="70%"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfSorteAries1">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="85%"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -1649,11 +1655,10 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea4">
+                    <Component class="javax.swing.JTextArea" name="txtMensagemTouro">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="&quot;Grandes conquistas n&#xe3;o se constroem do dia para a noite, mas sim com a consist&#xea;ncia de cada passo&#xa;. Confie no seu ritmo e valorize a sua caminhada!&quot; "/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1728,7 +1733,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="tituloCaracteristicaGemeos" pref="139" max="32767" attributes="0"/>
+                          <Component id="tituloCaracteristicaGemeos" pref="63" max="32767" attributes="0"/>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                           <Component id="pfortesGemeos" max="32767" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -1778,7 +1783,6 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="Comunicativo, inteligente, vers&#xe1;til, curioso,&#xa; bem-humorado e com grande facilidade de adapta&#xe7;&#xe3;o."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1794,7 +1798,6 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="Inconstante, ansioso, disperso, indeciso e tend&#xea;ncia a deixar projetos inacabados."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1947,29 +1950,14 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPeriodoAries2">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="21 de maio a 20 de junho"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfElementoAries2">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="ar"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPlanetaAries2">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Merc&#xfa;rio"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCorAries2">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Amarelo"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfNumeroAries2">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="5"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -2034,7 +2022,6 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="&quot;O cen&#xe1;rio astral de hoje traz uma movimenta&#xe7;&#xe3;o&#xa; r&#xe1;pida e muito estimulante para os geminianos.&#xa; Sua capacidade de persuas&#xe3;o estar&#xe1; em alta,&#xa; facilitando negocia&#xe7;&#xf5;es e a resolu&#xe7;&#xe3;o de pend&#xea;ncias.&#xa; No entanto, o fluxo intenso de pensamentos pode gerar dispers&#xe3;o.&#xa; Evite abra&#xe7;ar o mundo e fazer v&#xe1;rias tarefas ao mesmo tempo para n&#xe3;o &#xa;se desgastar antes do fim do dia.&quot; "/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -2162,24 +2149,12 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfAmorGemeos">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="85%"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfTrabalhoGemeos">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value=" 90%"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfSaudeGemeos">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value=" 70%"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfSorteGemeos">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value=" 80%"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -2234,11 +2209,10 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea6">
+                    <Component class="javax.swing.JTextArea" name="txtMensagemGemeos">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="&quot;A sua mente &#xe9; um universo cheio de possibilidades,&#xa; mas &#xe9; o foco que transforma pensamentos em realidade.&#xa; Escolha uma dire&#xe7;&#xe3;o clara hoje!&quot; "/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -2363,7 +2337,6 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="Intuitivo, protetor, carinhoso, emp&#xe1;tico,&#xa; leal e com uma forte liga&#xe7;&#xe3;o afetiva com a fam&#xed;lia e amigos."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -2379,7 +2352,6 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="Sens&#xed;vel demais, inst&#xe1;vel emocionalmente, apegado ao passado,&#xa; t&#xed;mido e com tend&#xea;ncia a se isolar."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -2532,29 +2504,14 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPeriodoCancer">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="21 de junho a 22 de julho"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfElementoCancer">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="&#xc1;gua"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPlanetaCancer">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Lua"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCorCancer">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value=" Prata / Branco"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfNumeroCancer">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="2"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -2591,7 +2548,7 @@
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="previsaoCancer" pref="52" max="32767" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="txPrevisaoCancer" pref="272" max="32767" attributes="0"/>
+                          <Component id="txPrevisaoCancer" pref="273" max="32767" attributes="0"/>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                           <Component id="btnAtualizarPrevisaoCancer" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -2746,24 +2703,12 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfAmorCancer">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="90%"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfTrabalhoCancer">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="75%"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfSaudeCancer">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="80%"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfSorteCancer">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="85%"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -2818,7 +2763,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea8">
+                    <Component class="javax.swing.JTextArea" name="txtMensagemCancer">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
@@ -2896,7 +2841,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="tituloCaracteristicaLeao" pref="129" max="32767" attributes="0"/>
+                          <Component id="tituloCaracteristicaLeao" pref="63" max="32767" attributes="0"/>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                           <Component id="pfortesLeao" max="32767" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -2946,7 +2891,6 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="Corajoso, determinado, confiante, entusiasmado, otimista, honesto e apaixonado por novos desafios."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -2962,7 +2906,6 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="Impaciente, impulsivo, temperamental, pavio curto e tend&#xea;ncia a agir antes de pensar."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -3027,7 +2970,7 @@
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="imgSignoLeao" min="-2" pref="573" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                          <Component id="tituloLeao" pref="88" max="32767" attributes="0"/>
+                          <Component id="tituloLeao" pref="67" max="32767" attributes="0"/>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="periodoLeao" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -3117,25 +3060,12 @@
                 <Component class="javax.swing.JTextField" name="tfPeriodoLeao">
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfElementoLeao">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Fogo"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPlanetaLeao">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="Marte"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCorLeao">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Vermelho"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfNumeroLeao">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="3"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -3200,7 +3130,6 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="&quot;O dia promete ser din&#xe2;mico e cheio de movimento para os arianos. Sua autoconfian&#xe7;a ser&#xe1; a chave para abrir portas no ambiente profissional. No entanto, o alinhamento planet&#xe1;rio pede cautela com rea&#xe7;&#xf5;es impulsivas. Respire fundo antes de responder a provoca&#xe7;&#xf5;es. Uma oportunidade inesperada de ganho ou reconhecimento pode surgir no final da tarde.&quot; "/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -3328,24 +3257,12 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfAmorLeao">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="70%"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfTrabalhoLeao">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="50%"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfSaudeLeao">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="90%"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfSorteLeao">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="79%"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -3404,7 +3321,6 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="&quot;N&#xe3;o espere pelas circunst&#xe2;ncias perfeitas para agir; a sua coragem &#xe9; o que cria a oportunidade. Seja o l&#xed;der da sua pr&#xf3;pria jornada hoje!&quot; "/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -3643,7 +3559,7 @@
                 <Component class="javax.swing.JLabel" name="imgSignoVirgem">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\EnzoLeite\Documents\ProjetoAppHoroscopo\Horoscopo\src\main\resources\assets\virgem.jpg"/>
+                      <Image iconType="2" name="C:\Users\EnzoLeite\Documents\ProjetoAppHoroscopo\Horoscopo\src\main\resources\assets\fundo.jpg"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -4318,9 +4234,12 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea13">
+                    <Component class="javax.swing.JTextArea" name="txtPrevisaoLibra">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="24" style="0"/>
+                        </Property>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
                     </Component>
@@ -4509,7 +4428,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea14">
+                    <Component class="javax.swing.JTextArea" name="txtMensagemLibra">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
@@ -6886,7 +6805,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="imgSigno11" pref="0" max="32767" attributes="0"/>
+                          <Component id="imgSignoPeixes" pref="0" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -6930,7 +6849,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="imgSigno11" min="-2" pref="573" max="-2" attributes="0"/>
+                          <Component id="imgSignoPeixes" min="-2" pref="573" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           <Component id="tituloAries11" pref="67" max="32767" attributes="0"/>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
@@ -6964,7 +6883,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="imgSigno11">
+                <Component class="javax.swing.JLabel" name="imgSignoPeixes">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="2" name="C:\Users\EnzoLeite\Documents\ProjetoAppHoroscopo\Horoscopo\src\main\resources\assets\peixes.jpg"/>
@@ -7088,9 +7007,12 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea23">
+                    <Component class="javax.swing.JTextArea" name="txtPrevisaoPeixes">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="24" style="0"/>
+                        </Property>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
                     </Component>
@@ -7279,7 +7201,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea24">
+                    <Component class="javax.swing.JTextArea" name="txtMensagemPeixes">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
