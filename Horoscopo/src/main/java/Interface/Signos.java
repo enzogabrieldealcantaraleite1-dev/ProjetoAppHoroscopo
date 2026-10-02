@@ -6,409 +6,770 @@ package Interface;
 
 import java.awt.Image;
 import java.time.LocalDate;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author JhéssikLeal
  */
+public class Signos extends javax.swing.JFrame {
 
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Signos.class.getName());
 
-    public class Signos extends javax.swing.JFrame {
+    /**
+     * Creates new form Signos
+     */
+    Clip musica;
 
-        private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Signos.class.getName());
+    public Signos() {
+        initComponents();
+        RedimensionarImagens();
+        PreencherPrevisao();
+        PreencherMensagem();
+        CorrigirAreasTextos();
 
-        /**
-         * Creates new form Signos
-         */
-        public Signos() {
-            initComponents();
-            RedimensionarImagens();
-            PreencherPrevisao();
-            PreencherMensagem();
-            CorrigirAreasTextos();
-
-        }
-
-        // TODA FUNÇÃO É CRIADA ABAIXO DO CONSTRUTOR
-        public void RedimensionarImagens() {
-            // capturar as imagens que estão dentro da label
-            ImageIcon aries = (ImageIcon) imgSignoAries.getIcon();
-            ImageIcon touro = (ImageIcon) imgSignoTouro.getIcon();
-            ImageIcon gemeos = (ImageIcon) imgSignoGemeos.getIcon();
-            ImageIcon cancer = (ImageIcon) imgSignoCancer.getIcon();
-            ImageIcon leao = (ImageIcon) imgSignoLeao.getIcon();
-            ImageIcon virgem = (ImageIcon) imgSignoVirgem.getIcon();
-            ImageIcon libra = (ImageIcon) imgSignoLibra.getIcon();
-            ImageIcon escorpiao = (ImageIcon) imgSignoEscorpiao.getIcon();
-            ImageIcon sagitario = (ImageIcon) imgSignoSagitario.getIcon();
-            ImageIcon capricornio = (ImageIcon) imgSignoCapricornio.getIcon();
-            ImageIcon aquario = (ImageIcon) imgSignoAquario.getIcon();
-            ImageIcon peixes = (ImageIcon) imgSignoPeixes.getIcon();
-
-            // REDIMENSIONAR AS IMAGENS
-            Image imgAries = aries.getImage().getScaledInstance(
-                    400, 700, Image.SCALE_SMOOTH);
-
-            Image imgTouro = touro.getImage().getScaledInstance(
-                    400, 700, Image.SCALE_SMOOTH);
-
-            Image imgGemeos = gemeos.getImage().getScaledInstance(
-                    400, 700, Image.SCALE_SMOOTH);
-
-            Image imgCancer = cancer.getImage().getScaledInstance(
-                    400, 700, Image.SCALE_SMOOTH);
-
-            Image imgLeao = leao.getImage().getScaledInstance(
-                    400, 700, Image.SCALE_SMOOTH);
-
-            Image imgVirgem = virgem.getImage().getScaledInstance(
-                    400, 700, Image.SCALE_SMOOTH);
-
-            Image imgLibra = libra.getImage().getScaledInstance(
-                    400, 700, Image.SCALE_SMOOTH);
-
-            Image imgEscorpiao = escorpiao.getImage().getScaledInstance(
-                    400, 700, Image.SCALE_SMOOTH);
-
-            Image imgSagitario = sagitario.getImage().getScaledInstance(
-                    400, 700, Image.SCALE_SMOOTH);
-
-            Image imgCapricornio = capricornio.getImage().getScaledInstance(
-                    400, 700, Image.SCALE_SMOOTH);
-
-            Image imgAquario = aquario.getImage().getScaledInstance(
-                    400, 700, Image.SCALE_SMOOTH);
-
-            Image imgPeixes = peixes.getImage().getScaledInstance(
-                    400, 700, Image.SCALE_SMOOTH);
-
-            // INSERIR AS IMAGENS REDIMENSIONADAS NAS LABELS
-            imgSignoAries.setIcon(new ImageIcon(imgAries));
-            imgSignoTouro.setIcon(new ImageIcon(imgTouro));
-            imgSignoGemeos.setIcon(new ImageIcon(imgGemeos));
-            imgSignoCancer.setIcon(new ImageIcon(imgCancer));
-            imgSignoLeao.setIcon(new ImageIcon(imgLeao));
-            imgSignoVirgem.setIcon(new ImageIcon(imgVirgem));
-            imgSignoLibra.setIcon(new ImageIcon(imgLibra));
-            imgSignoEscorpiao.setIcon(new ImageIcon(imgEscorpiao));
-            imgSignoSagitario.setIcon(new ImageIcon(imgSagitario));
-            imgSignoCapricornio.setIcon(new ImageIcon(imgCapricornio));
-            imgSignoAquario.setIcon(new ImageIcon(imgAquario));
-            imgSignoPeixes.setIcon(new ImageIcon(imgPeixes));
-
-        }// fim da função
-
-        public void PreencherPrevisao() {
-            // Verificar o dia da semana. LocalDate puxa a data do computador.
-            int diaSemana = LocalDate.now().getDayOfWeek().getValue();
-
-            // Preencher os campos com previsões fictícias para o aplicativo.
-            switch (diaSemana) {
-                case 1: // Segunda-feira
-                    txtPrevisaoAries.setText("Comece a semana com iniciativa! Organize suas prioridades e use sua energia para dar o primeiro passo em um projeto.");
-                    txtPrevisaoTouro.setText("O dia pede organização e tranquilidade. Planeje suas tarefas e avance no seu ritmo, valorizando cada pequena conquista.");
-                    txtPrevisaoGemeos.setText("Sua comunicação pode abrir caminhos. Compartilhe ideias, escute outras opiniões e aproveite para aprender algo novo.");
-                    txtPrevisaoCancer.setText("Comece a semana cuidando de você e de quem está por perto. Uma conversa acolhedora pode tornar o dia mais leve.");
-                    txtPrevisaoLeao.setText("Sua criatividade merece espaço. Mostre suas ideias com confiança e valorize também as contribuições das outras pessoas.");
-                    txtPrevisaoVirgem.setText("Organize sua rotina e estabeleça metas possíveis. Resolver uma tarefa de cada vez ajudará você a manter o foco.");
-                    txtPrevisaoLibra.setText("Busque equilíbrio entre suas responsabilidades e seus momentos de descanso. O diálogo será um bom aliado nas decisões.");
-                    txtPrevisaoEscorpiao.setText("Direcione sua determinação para o que realmente importa. Evite agir por impulso e observe as situações com calma.");
-                    txtPrevisaoSagitario.setText("A semana começa com espaço para novas descobertas. Transforme sua vontade de aprender em uma pequena ação prática.");
-                    txtPrevisaoCapricornio.setText("Defina suas prioridades e prepare um plano para a semana. A constância pode ajudar você a se aproximar dos seus objetivos.");
-                    txtPrevisaoAquario.setText("Uma ideia diferente pode renovar sua rotina. Anote suas inspirações e escolha uma delas para desenvolver com atenção.");
-                    txtPrevisaoPeixes.setText("Use sua sensibilidade para perceber suas necessidades. Comece o dia com calma e reserve um momento para sua criatividade.");
-                    break;
-
-                case 2: // Terça-feira
-                    txtPrevisaoAries.setText("Canalize sua energia para concluir uma tarefa pendente. Nas conversas, pratique a paciência e dê espaço para o outro falar.");
-                    txtPrevisaoTouro.setText("Cuide do que você vem construindo. Pequenos ajustes na rotina podem trazer mais conforto e facilitar suas atividades.");
-                    txtPrevisaoGemeos.setText("Seu interesse por novidades pode render boas ideias. Para não se dispersar, escolha uma prioridade e dedique atenção a ela.");
-                    txtPrevisaoCancer.setText("Demonstre carinho por meio de atitudes simples. Também vale expressar suas necessidades com clareza e gentileza.");
-                    txtPrevisaoLeao.setText("Use sua confiança para enfrentar um desafio. Trabalhar em parceria pode deixar o caminho mais agradável e produtivo.");
-                    txtPrevisaoVirgem.setText("Observe os detalhes, mas não deixe a busca pela perfeição impedir seu progresso. Faça o melhor possível com o tempo disponível.");
-                    txtPrevisaoLibra.setText("Uma conversa tranquila pode ajudar a esclarecer uma dúvida. Considere diferentes opiniões sem esquecer o que é importante para você.");
-                    txtPrevisaoEscorpiao.setText("O dia convida à concentração. Dedique-se a uma atividade importante e procure compreender os fatos antes de tirar conclusões.");
-                    txtPrevisaoSagitario.setText("Experimente uma maneira diferente de realizar suas tarefas. A novidade pode trazer motivação, desde que você mantenha seus compromissos.");
-                    txtPrevisaoCapricornio.setText("Reconheça o esforço que você já fez. Reorganize o que for necessário e continue avançando sem exigir resultados imediatos.");
-                    txtPrevisaoAquario.setText("Compartilhar ideias pode enriquecer seus projetos. Esteja aberto a sugestões e transforme uma inspiração em algo concreto.");
-                    txtPrevisaoPeixes.setText("Dê espaço à imaginação, mantendo atenção às tarefas do dia. Uma lista simples pode ajudar a organizar suas ideias.");
-                    break;
-
-                case 3: // Quarta-feira
-                    txtPrevisaoAries.setText("Faça uma pausa para avaliar o andamento da semana. Ajustar seus planos pode ser mais útil do que tentar resolver tudo de uma vez.");
-                    txtPrevisaoTouro.setText("Valorize a constância, mas permita pequenas mudanças. Uma nova forma de fazer algo pode tornar sua rotina mais leve.");
-                    txtPrevisaoGemeos.setText("A troca de conhecimentos pode movimentar seu dia. Tire dúvidas e procure concluir uma ideia antes de começar outra.");
-                    txtPrevisaoCancer.setText("Observe como você está se sentindo e respeite seus limites. Um momento de tranquilidade pode ajudar a reorganizar seus pensamentos.");
-                    txtPrevisaoLeao.setText("Reconheça suas conquistas e compartilhe o mérito com quem ajudou. A generosidade pode fortalecer suas relações.");
-                    txtPrevisaoVirgem.setText("Revise suas tarefas e simplifique o que puder. Nem tudo precisa sair exatamente como você planejou para ter valor.");
-                    txtPrevisaoLibra.setText("Procure equilibrar o tempo dedicado aos outros e a você. Dizer o que precisa com respeito pode evitar mal-entendidos.");
-                    txtPrevisaoEscorpiao.setText("Use sua persistência para superar uma dificuldade. Se algo não estiver funcionando, considere mudar a estratégia.");
-                    txtPrevisaoSagitario.setText("Encontre motivação em uma nova pergunta ou descoberta. Aproveite a curiosidade para aprofundar um assunto de seu interesse.");
-                    txtPrevisaoCapricornio.setText("Confira o que já foi realizado e reorganize as próximas etapas. Inclua pausas no planejamento para manter um ritmo sustentável.");
-                    txtPrevisaoAquario.setText("Seu olhar criativo pode ajudar a resolver um problema cotidiano. Teste uma solução simples e observe o resultado.");
-                    txtPrevisaoPeixes.setText("Transforme sua inspiração em uma atividade prática. Escrever, desenhar ou ouvir música pode tornar o dia mais agradável.");
-                    break;
-
-                case 4: // Quinta-feira
-                    txtPrevisaoAries.setText("Tome a iniciativa em uma tarefa que você vem adiando. Antes de agir, pense nas etapas e nas pessoas envolvidas.");
-                    txtPrevisaoTouro.setText("O dia favorece o cuidado com seus projetos pessoais. Reserve um tempo para algo que traga satisfação e tenha significado para você.");
-                    txtPrevisaoGemeos.setText("Expresse suas ideias com clareza e atenção. Escutar até o fim pode ser tão importante quanto encontrar as palavras certas.");
-                    txtPrevisaoCancer.setText("Aproxime-se de pessoas com quem você se sente à vontade. Uma troca sincera pode trazer acolhimento e novas perspectivas.");
-                    txtPrevisaoLeao.setText("Coloque sua criatividade em movimento. Encare um desafio com confiança, mantendo abertura para aprender durante o processo.");
-                    txtPrevisaoVirgem.setText("Aproveite para resolver pequenas pendências. Organizar seu espaço pode facilitar a concentração nas próximas atividades.");
-                    txtPrevisaoLibra.setText("Reflita sobre uma decisão com calma. Considere suas prioridades e evite assumir compromissos apenas para agradar.");
-                    txtPrevisaoEscorpiao.setText("Observe suas reações antes de responder a uma situação difícil. Uma atitude ponderada pode tornar a conversa mais construtiva.");
-                    txtPrevisaoSagitario.setText("Dê um passo em direção a um objetivo que desperte entusiasmo. Planejar os detalhes ajudará a transformar vontade em ação.");
-                    txtPrevisaoCapricornio.setText("Sua dedicação ganha sentido quando você reconhece o próprio progresso. Valorize as etapas concluídas e ajuste as expectativas.");
-                    txtPrevisaoAquario.setText("Busque colaboração para desenvolver uma ideia. Diferentes pontos de vista podem revelar possibilidades que você ainda não considerou.");
-                    txtPrevisaoPeixes.setText("Use sua empatia nas relações, sem deixar suas necessidades de lado. Encontre um momento para descansar e reorganizar as ideias.");
-                    break;
-
-                case 5: // Sexta-feira
-                    txtPrevisaoAries.setText("Concentre sua energia nas prioridades que ainda precisam de atenção. Depois, permita-se aproveitar um momento de diversão.");
-                    txtPrevisaoTouro.setText("Finalize o que estiver ao seu alcance e valorize o esforço da semana. Um programa tranquilo pode ser uma boa forma de relaxar.");
-                    txtPrevisaoGemeos.setText("O dia convida a conversas leves e boas trocas. Organize as pendências antes de se envolver em novos planos.");
-                    txtPrevisaoCancer.setText("Celebre os pequenos momentos e procure companhia acolhedora. Respeite também sua vontade de ficar em um ambiente tranquilo.");
-                    txtPrevisaoLeao.setText("Compartilhe sua alegria e reconheça as conquistas das pessoas próximas. Um encontro descontraído pode deixar o dia especial.");
-                    txtPrevisaoVirgem.setText("Encerre a semana reconhecendo o que foi possível realizar. Deixe anotado o que ficou para depois e aproveite seu descanso.");
-                    txtPrevisaoLibra.setText("Reserve espaço para atividades que tragam prazer e equilíbrio. Escolha um programa que combine com sua disposição.");
-                    txtPrevisaoEscorpiao.setText("Deixe as preocupações de lado por alguns instantes e observe o que trouxe satisfação nesta semana. Valorize suas boas experiências.");
-                    txtPrevisaoSagitario.setText("Sua vontade de sair da rotina pode inspirar um programa diferente. Explore possibilidades e combine os planos com responsabilidade.");
-                    txtPrevisaoCapricornio.setText("Reconheça o trabalho realizado e estabeleça um limite para encerrar as tarefas. Descansar também faz parte de uma boa rotina.");
-                    txtPrevisaoAquario.setText("Uma atividade diferente pode renovar seu ânimo. Convide alguém para compartilhar uma ideia, um jogo ou uma conversa.");
-                    txtPrevisaoPeixes.setText("Encontre leveza em algo simples, como uma música ou uma boa conversa. Dê atenção ao que ajuda você a se sentir bem.");
-                    break;
-
-                case 6: // Sábado
-                    txtPrevisaoAries.setText("Aproveite o dia para movimentar seus projetos pessoais ou experimentar um hobby. Escolha algo que combine com sua energia.");
-                    txtPrevisaoTouro.setText("Desfrute dos pequenos prazeres com calma. Cuidar do seu espaço ou preparar algo de que gosta pode tornar o dia agradável.");
-                    txtPrevisaoGemeos.setText("Explore sua curiosidade em uma leitura, passeio ou conversa. Permita-se descobrir algo sem a obrigação de dominar tudo.");
-                    txtPrevisaoCancer.setText("Dedique tempo aos vínculos que fazem bem a você. Um gesto de carinho pode tornar um momento comum mais especial.");
-                    txtPrevisaoLeao.setText("Expresse sua criatividade e aproveite atividades que tragam alegria. O dia pode ganhar cor com um projeto feito por prazer.");
-                    txtPrevisaoVirgem.setText("Equilibre pequenas tarefas com momentos de lazer. Permita que parte do dia aconteça sem um planejamento detalhado.");
-                    txtPrevisaoLibra.setText("Busque ambientes e companhias que tragam tranquilidade. Aproveite para apreciar arte, música ou uma conversa agradável.");
-                    txtPrevisaoEscorpiao.setText("Reserve tempo para um interesse pessoal. Dedicar atenção ao que você gosta pode ser uma boa maneira de aproveitar o sábado.");
-                    txtPrevisaoSagitario.setText("Saia um pouco da rotina e conheça algo diferente. Uma descoberta simples já pode despertar seu entusiasmo.");
-                    txtPrevisaoCapricornio.setText("Dê espaço à vida além das obrigações. Um hobby ou um momento com pessoas queridas pode tornar seu dia mais leve.");
-                    txtPrevisaoAquario.setText("Experimente criar, inventar ou aprender algo por diversão. Compartilhar essa experiência pode render boas lembranças.");
-                    txtPrevisaoPeixes.setText("Aproveite sua imaginação em uma atividade artística ou relaxante. Respeite seu ritmo e escolha um programa acolhedor.");
-                    break;
-
-                case 7: // Domingo
-                    txtPrevisaoAries.setText("Desacelere e escolha suas prioridades para a próxima semana. Um planejamento simples pode ajudar a direcionar sua energia.");
-                    txtPrevisaoTouro.setText("Aproveite o domingo para descansar e organizar apenas o necessário. Valorize a tranquilidade e os momentos de conforto.");
-                    txtPrevisaoGemeos.setText("Dê uma pausa no excesso de informações. Escolha uma atividade leve e anote as ideias que quiser retomar durante a semana.");
-                    txtPrevisaoCancer.setText("Cuide do seu espaço e dos vínculos importantes. Um momento de acolhimento pode ajudar a encerrar a semana com serenidade.");
-                    txtPrevisaoLeao.setText("Reconheça algo de que você se orgulha nesta semana. Reserve tempo para descansar e aproveitar a companhia de quem você gosta.");
-                    txtPrevisaoVirgem.setText("Prepare o básico para os próximos dias sem ocupar todo o domingo. Deixe espaço para o descanso e para os imprevistos.");
-                    txtPrevisaoLibra.setText("Reflita sobre o equilíbrio da sua rotina. Pense em uma pequena mudança que permita cuidar melhor dos seus interesses.");
-                    txtPrevisaoEscorpiao.setText("Reveja a semana com gentileza e identifique o que aprendeu. Escolha o que deseja levar adiante e o que pode deixar para trás.");
-                    txtPrevisaoSagitario.setText("Imagine novas possibilidades e escolha uma meta possível para a semana. Aproveite o presente antes de pensar na próxima aventura.");
-                    txtPrevisaoCapricornio.setText("Planeje os próximos dias com metas realistas. Lembre-se de incluir tempo para você e para as pessoas importantes.");
-                    txtPrevisaoAquario.setText("Organize suas ideias e selecione uma para explorar nos próximos dias. Aproveite o domingo para renovar suas inspirações.");
-                    txtPrevisaoPeixes.setText("Encerre a semana com calma e atenção aos seus sentimentos. Uma atividade tranquila pode ajudar a preparar o ânimo para recomeçar.");
-                    break;
-            }
-        } // Fim do método
-
-        public void PreencherMensagem() {
-            // CAPTURAR DIA DA SEMANA
-            int diaSemana = LocalDate.now().getDayOfWeek().getValue();
-
-            // PREENCHER AS MENSAGENS DE TODOS OS SIGNOS
-            switch (diaSemana) {
-                case 1: // Segunda-feira
-                    txtMensagemAries.setText("Tenha coragem para começar e paciência para continuar.");
-                    txtMensagemTouro.setText("Cada pequeno passo também faz parte de uma grande conquista.");
-                    txtMensagemGemeos.setText("Aprender algo novo é abrir uma janela para o mundo.");
-                    txtMensagemCancer.setText("Ofereça a si mesmo o carinho que você dedica aos outros.");
-                    txtMensagemLeao.setText("Deixe sua luz aparecer nas atitudes que fazem a diferença.");
-                    txtMensagemVirgem.setText("Comece com o que você tem e aperfeiçoe ao longo do caminho.");
-                    txtMensagemLibra.setText("O equilíbrio começa quando você também escuta suas necessidades.");
-                    txtMensagemEscorpiao.setText("Use sua força para construir o que deseja viver.");
-                    txtMensagemSagitario.setText("Transforme a vontade de descobrir em coragem para aprender.");
-                    txtMensagemCapricornio.setText("Um objetivo fica mais próximo quando você dá o primeiro passo.");
-                    txtMensagemAquario.setText("Suas ideias merecem a oportunidade de sair do papel.");
-                    txtMensagemPeixes.setText("Dê espaço aos seus sonhos e um pequeno passo na direção deles.");
-                    break;
-
-                case 2: // Terça-feira
-                    txtMensagemAries.setText("Agir com calma também é uma demonstração de força.");
-                    txtMensagemTouro.setText("Respeite seu ritmo sem perder de vista seus objetivos.");
-                    txtMensagemGemeos.setText("Uma boa conversa começa com a disposição para escutar.");
-                    txtMensagemCancer.setText("Pequenos gestos de carinho podem transformar um dia comum.");
-                    txtMensagemLeao.setText("Confie no seu valor, mesmo quando não houver aplausos.");
-                    txtMensagemVirgem.setText("Seu esforço tem valor, mesmo quando o resultado não é perfeito.");
-                    txtMensagemLibra.setText("Ser gentil não exige deixar suas próprias vontades de lado.");
-                    txtMensagemEscorpiao.setText("Mudar de estratégia pode ser o caminho para seguir em frente.");
-                    txtMensagemSagitario.setText("Encontre uma descoberta nas pequenas experiências do cotidiano.");
-                    txtMensagemCapricornio.setText("A constância cresce quando suas metas respeitam seus limites.");
-                    txtMensagemAquario.setText("Uma ideia compartilhada pode ganhar novas possibilidades.");
-                    txtMensagemPeixes.setText("Sua sensibilidade pode ser uma ponte para compreender o outro.");
-                    break;
-
-                case 3: // Quarta-feira
-                    txtMensagemAries.setText("Antes de acelerar, confira se está seguindo a direção que deseja.");
-                    txtMensagemTouro.setText("Permita-se mudar sem desvalorizar tudo o que já construiu.");
-                    txtMensagemGemeos.setText("Concentre sua atenção no que merece ser concluído hoje.");
-                    txtMensagemCancer.setText("Reconhecer o que você sente é uma forma de cuidar de si.");
-                    txtMensagemLeao.setText("Celebrar a conquista de outra pessoa não diminui a sua.");
-                    txtMensagemVirgem.setText("Você pode fazer um bom trabalho sem controlar cada detalhe.");
-                    txtMensagemLibra.setText("Sua opinião merece espaço nas decisões que envolvem sua vida.");
-                    txtMensagemEscorpiao.setText("Nem toda resposta precisa ser imediata; permita-se refletir.");
-                    txtMensagemSagitario.setText("A curiosidade ganha força quando vem acompanhada de dedicação.");
-                    txtMensagemCapricornio.setText("Reconheça o caminho percorrido antes de cobrar o próximo passo.");
-                    txtMensagemAquario.setText("Observe o cotidiano: uma solução pode começar em uma pergunta.");
-                    txtMensagemPeixes.setText("Transforme uma inspiração de hoje em algo que você possa criar.");
-                    break;
-
-                case 4: // Quinta-feira
-                    txtMensagemAries.setText("Coragem também é admitir uma dúvida e pedir ajuda.");
-                    txtMensagemTouro.setText("Cuide do que importa, mas deixe espaço para o novo.");
-                    txtMensagemGemeos.setText("Escolha palavras que esclareçam e aproximem.");
-                    txtMensagemCancer.setText("Você pode acolher alguém sem carregar todos os problemas dessa pessoa.");
-                    txtMensagemLeao.setText("Liderar também é abrir espaço para outras pessoas brilharem.");
-                    txtMensagemVirgem.setText("Simplificar uma tarefa pode ser melhor do que exigir mais de si.");
-                    txtMensagemLibra.setText("Uma decisão consciente vale mais do que agradar a todos.");
-                    txtMensagemEscorpiao.setText("Direcione sua intensidade para algo que faça sentido para você.");
-                    txtMensagemSagitario.setText("Sonhar com o futuro fica mais interessante quando você age no presente.");
-                    txtMensagemCapricornio.setText("Disciplina e descanso podem fazer parte do mesmo planejamento.");
-                    txtMensagemAquario.setText("Escutar uma opinião diferente pode enriquecer sua própria ideia.");
-                    txtMensagemPeixes.setText("Cuidar dos seus limites também é um gesto de amor.");
-                    break;
-
-                case 5: // Sexta-feira
-                    txtMensagemAries.setText("Valorize o que conseguiu realizar e permita-se respirar.");
-                    txtMensagemTouro.setText("Aprecie as pequenas conquistas que sua dedicação tornou possíveis.");
-                    txtMensagemGemeos.setText("Compartilhe uma boa ideia e guarde espaço para uma boa risada.");
-                    txtMensagemCancer.setText("Encontre alegria nos encontros e nos gestos mais simples.");
-                    txtMensagemLeao.setText("Celebre suas vitórias sem precisar compará-las às de ninguém.");
-                    txtMensagemVirgem.setText("O que ficou pendente não apaga tudo o que você já fez.");
-                    txtMensagemLibra.setText("Escolha um momento do dia para fazer algo de que você gosta.");
-                    txtMensagemEscorpiao.setText("Dê atenção ao que trouxe leveza para sua semana.");
-                    txtMensagemSagitario.setText("A alegria pode estar em um plano simples com uma boa companhia.");
-                    txtMensagemCapricornio.setText("Seu valor vai além da quantidade de tarefas que você conclui.");
-                    txtMensagemAquario.setText("Deixe a criatividade participar também dos seus momentos de lazer.");
-                    txtMensagemPeixes.setText("Permita-se apreciar o presente sem resolver tudo de uma vez.");
-                    break;
-
-                case 6: // Sábado
-                    txtMensagemAries.setText("Use sua energia para viver algo que desperte seu entusiasmo.");
-                    txtMensagemTouro.setText("Desacelere o suficiente para perceber o que faz bem a você.");
-                    txtMensagemGemeos.setText("Explore uma curiosidade sem transformar a descoberta em obrigação.");
-                    txtMensagemCancer.setText("Uma lembrança feliz pode começar com um momento de atenção.");
-                    txtMensagemLeao.setText("Faça algo por prazer, mesmo que ninguém esteja olhando.");
-                    txtMensagemVirgem.setText("Você também merece um dia com menos cobranças.");
-                    txtMensagemLibra.setText("Reserve tempo para as pessoas e atividades que trazem paz.");
-                    txtMensagemEscorpiao.setText("Permita-se viver momentos leves sem precisar explicar tudo.");
-                    txtMensagemSagitario.setText("Descobrir algo diferente pode começar bem perto de você.");
-                    txtMensagemCapricornio.setText("Descansar não diminui sua dedicação; faz parte de cuidar de si.");
-                    txtMensagemAquario.setText("Experimente uma ideia divertida e aproveite o processo.");
-                    txtMensagemPeixes.setText("Encontre beleza nos detalhes que a pressa costuma esconder.");
-                    break;
-
-                case 7: // Domingo
-                    txtMensagemAries.setText("Prepare o próximo passo, mas aproveite o lugar onde está agora.");
-                    txtMensagemTouro.setText("Que seu descanso tenha o mesmo espaço que seus compromissos.");
-                    txtMensagemGemeos.setText("Dê uma pausa às informações e escute seus próprios pensamentos.");
-                    txtMensagemCancer.setText("Crie um momento de acolhimento para encerrar sua semana.");
-                    txtMensagemLeao.setText("Lembre-se de uma atitude sua que merece reconhecimento.");
-                    txtMensagemVirgem.setText("Planeje o necessário e deixe espaço para a vida acontecer.");
-                    txtMensagemLibra.setText("Recomeçar pode ser escolher uma rotina mais equilibrada.");
-                    txtMensagemEscorpiao.setText("Leve os aprendizados da semana, sem carregar todas as cobranças.");
-                    txtMensagemSagitario.setText("Escolha um motivo para se animar com os próximos dias.");
-                    txtMensagemCapricornio.setText("Defina metas possíveis e reconheça cada etapa do caminho.");
-                    txtMensagemAquario.setText("Guarde uma ideia que você gostaria de explorar na próxima semana.");
-                    txtMensagemPeixes.setText("Recomece com gentileza e respeite o tempo de cada passo.");
-                    break;
-            } // Fim do switch
-        } // Fim do PreencherMensagem
-
-        public void CorrigirAreasTextos() {
-            //corrigir Mensagem
-            txtMensagemAries.setLineWrap(true);
-            txtMensagemAries.setLineWrap(true);
-            //corrigir previsão
-            txtPrevisaoAries.setLineWrap(true);
-            txtPrevisaoAries.setLineWrap(true);
-            //corrigir ponto fortes
-            txFortesAries.setLineWrap(true);
-            txFortesAries.setLineWrap(true);
-            //corrigir pontos a melhorar
-            txMelhorarAries.setLineWrap(true);
-            txMelhorarAries.setLineWrap(true);
-
-        }//fim do metodo
-
-        public void CacularSigno() {
-            //capturar dados combobox
-            int dia = Integer.parseInt(cbDia.getSelectedItem().toString());
-            String mes = cbMes.getSelectedItem().toString();
-
-            ImageIcon imagem = null;
-
-            //verificar dia e mes  dos signos com if else
-            if ((mes.equalsIgnoreCase("março") && dia >= 21)
-                    || (mes.equalsIgnoreCase("Abril") && dia <= 19)) {
-                signo.setText("Aries");
-                imagem = (ImageIcon) imgSignoPeixes.getIcon();
-            } else if ((mes.equalsIgnoreCase("março") && dia >= 21) || (mes.equalsIgnoreCase("abril") && dia <= 19)) {
-                signo.setText("Áries");
-                imagem = (ImageIcon) imgSignoAries.getIcon();
-            } else if ((mes.equalsIgnoreCase("abril") && dia >= 20) || (mes.equalsIgnoreCase("maio") && dia <= 20)) {
-                signo.setText("Touro");
-                imagem = (ImageIcon) imgSignoTouro.getIcon();
-            } else if ((mes.equalsIgnoreCase("maio") && dia >= 21) || (mes.equalsIgnoreCase("junho") && dia <= 20)) {
-                signo.setText("Gêmeos");
-                imagem = (ImageIcon) imgSignoGemeos.getIcon();
-            } else if ((mes.equalsIgnoreCase("junho") && dia >= 21) || (mes.equalsIgnoreCase("julho") && dia <= 22)) {
-                signo.setText("Câncer");
-                imagem = (ImageIcon) imgSignoCancer.getIcon();
-            } else if ((mes.equalsIgnoreCase("julho") && dia >= 23) || (mes.equalsIgnoreCase("agosto") && dia <= 22)) {
-                signo.setText("Leão");
-                imagem = (ImageIcon) imgSignoLeao.getIcon();
-            } else if ((mes.equalsIgnoreCase("agosto") && dia >= 23) || (mes.equalsIgnoreCase("setembro") && dia <= 22)) {
-                signo.setText("Virgem");
-                imagem = (ImageIcon) imgSignoVirgem.getIcon();
-            } else if ((mes.equalsIgnoreCase("setembro") && dia >= 23) || (mes.equalsIgnoreCase("outubro") && dia <= 22)) {
-                signo.setText("Libra");
-                imagem = (ImageIcon) imgSignoLibra.getIcon();
-            } else if ((mes.equalsIgnoreCase("outubro") && dia >= 23) || (mes.equalsIgnoreCase("novembro") && dia <= 21)) {
-                signo.setText("Escorpião");
-                imagem = (ImageIcon) imgSignoEscorpiao.getIcon();
-            } else if ((mes.equalsIgnoreCase("novembro") && dia >= 22) || (mes.equalsIgnoreCase("dezembro") && dia <= 21)) {
-                signo.setText("Sagitário");
-                imagem = (ImageIcon) imgSignoSagitario.getIcon();
-            } else if ((mes.equalsIgnoreCase("dezembro") && dia >= 22) || (mes.equalsIgnoreCase("janeiro") && dia <= 19)) {
-                signo.setText("Capricórnio");
-                imagem = (ImageIcon) imgSignoCapricornio.getIcon();
-            } else if ((mes.equalsIgnoreCase("janeiro") && dia >= 20) || (mes.equalsIgnoreCase("fevereiro") && dia <= 18)) {
-                signo.setText("Aquário");
-                imagem = (ImageIcon) imgSignoAquario.getIcon();
-            } else if ((mes.equalsIgnoreCase("fevereiro") && dia >= 19) || (mes.equalsIgnoreCase("março") && dia <= 20)) {
-                signo.setText("Peixes");
-                imagem = (ImageIcon) imgSignoPeixes.getIcon();
-            } else {
-                signo.setText("Data Inválida");
-                imagem = null; // Ou uma imagem de erro padrão
-            }
-
-            Image imgRedimencionada = imagem.getImage().getScaledInstance(900, 1000, Image.SCALE_SMOOTH);
-            btnSigno.setIcon(new ImageIcon(imgRedimencionada));
-        }
-
-        public void CalcularCompatibilidade() {
-            String signo1 = cbSigno1.getSelectedItem().toString();
-            String signo2 = cbSigno2.getSelectedItem().toString();
-
-            if (signo1.equalsIgnoreCase("Aries")
-                    && signo2.equalsIgnoreCase("Touro")) {
-                tfCompatibilidade.setText("70% compatibilidade!");
-            } else if (signo1.equalsIgnoreCase("Aries"))
-
-        }
     }
+
+    // TODA FUNÇÃO É CRIADA ABAIXO DO CONSTRUTOR
+    public void RedimensionarImagens() {
+        // capturar as imagens que estão dentro da label
+        ImageIcon aries = (ImageIcon) imgSignoAries.getIcon();
+        ImageIcon touro = (ImageIcon) imgSignoTouro.getIcon();
+        ImageIcon gemeos = (ImageIcon) imgSignoGemeos.getIcon();
+        ImageIcon cancer = (ImageIcon) imgSignoCancer.getIcon();
+        ImageIcon leao = (ImageIcon) imgSignoLeao.getIcon();
+        ImageIcon virgem = (ImageIcon) imgSignoVirgem.getIcon();
+        ImageIcon libra = (ImageIcon) imgSignoLibra.getIcon();
+        ImageIcon escorpiao = (ImageIcon) imgSignoEscorpiao.getIcon();
+        ImageIcon sagitario = (ImageIcon) imgSignoSagitario.getIcon();
+        ImageIcon capricornio = (ImageIcon) imgSignoCapricornio.getIcon();
+        ImageIcon aquario = (ImageIcon) imgSignoAquario.getIcon();
+        ImageIcon peixes = (ImageIcon) imgSignoPeixes.getIcon();
+
+        // REDIMENSIONAR AS IMAGENS
+        Image imgAries = aries.getImage().getScaledInstance(
+                400, 700, Image.SCALE_SMOOTH);
+
+        Image imgTouro = touro.getImage().getScaledInstance(
+                400, 700, Image.SCALE_SMOOTH);
+
+        Image imgGemeos = gemeos.getImage().getScaledInstance(
+                400, 700, Image.SCALE_SMOOTH);
+
+        Image imgCancer = cancer.getImage().getScaledInstance(
+                400, 700, Image.SCALE_SMOOTH);
+
+        Image imgLeao = leao.getImage().getScaledInstance(
+                400, 700, Image.SCALE_SMOOTH);
+
+        Image imgVirgem = virgem.getImage().getScaledInstance(
+                400, 700, Image.SCALE_SMOOTH);
+
+        Image imgLibra = libra.getImage().getScaledInstance(
+                400, 700, Image.SCALE_SMOOTH);
+
+        Image imgEscorpiao = escorpiao.getImage().getScaledInstance(
+                400, 700, Image.SCALE_SMOOTH);
+
+        Image imgSagitario = sagitario.getImage().getScaledInstance(
+                400, 700, Image.SCALE_SMOOTH);
+
+        Image imgCapricornio = capricornio.getImage().getScaledInstance(
+                400, 700, Image.SCALE_SMOOTH);
+
+        Image imgAquario = aquario.getImage().getScaledInstance(
+                400, 700, Image.SCALE_SMOOTH);
+
+        Image imgPeixes = peixes.getImage().getScaledInstance(
+                400, 700, Image.SCALE_SMOOTH);
+
+        // INSERIR AS IMAGENS REDIMENSIONADAS NAS LABELS
+        imgSignoAries.setIcon(new ImageIcon(imgAries));
+        imgSignoTouro.setIcon(new ImageIcon(imgTouro));
+        imgSignoGemeos.setIcon(new ImageIcon(imgGemeos));
+        imgSignoCancer.setIcon(new ImageIcon(imgCancer));
+        imgSignoLeao.setIcon(new ImageIcon(imgLeao));
+        imgSignoVirgem.setIcon(new ImageIcon(imgVirgem));
+        imgSignoLibra.setIcon(new ImageIcon(imgLibra));
+        imgSignoEscorpiao.setIcon(new ImageIcon(imgEscorpiao));
+        imgSignoSagitario.setIcon(new ImageIcon(imgSagitario));
+        imgSignoCapricornio.setIcon(new ImageIcon(imgCapricornio));
+        imgSignoAquario.setIcon(new ImageIcon(imgAquario));
+        imgSignoPeixes.setIcon(new ImageIcon(imgPeixes));
+
+    }// fim da função
+
+    public void PreencherPrevisao() {
+        // Verificar o dia da semana. LocalDate puxa a data do computador.
+        int diaSemana = LocalDate.now().getDayOfWeek().getValue();
+
+        // Preencher os campos com previsões fictícias para o aplicativo.
+        switch (diaSemana) {
+            case 1: // Segunda-feira
+                txtPrevisaoAries.setText("Comece a semana com iniciativa! Organize suas prioridades e use sua energia para dar o primeiro passo em um projeto.");
+                txtPrevisaoTouro.setText("O dia pede organização e tranquilidade. Planeje suas tarefas e avance no seu ritmo, valorizando cada pequena conquista.");
+                txtPrevisaoGemeos.setText("Sua comunicação pode abrir caminhos. Compartilhe ideias, escute outras opiniões e aproveite para aprender algo novo.");
+                txtPrevisaoCancer.setText("Comece a semana cuidando de você e de quem está por perto. Uma conversa acolhedora pode tornar o dia mais leve.");
+                txtPrevisaoLeao.setText("Sua criatividade merece espaço. Mostre suas ideias com confiança e valorize também as contribuições das outras pessoas.");
+                txtPrevisaoVirgem.setText("Organize sua rotina e estabeleça metas possíveis. Resolver uma tarefa de cada vez ajudará você a manter o foco.");
+                txtPrevisaoLibra.setText("Busque equilíbrio entre suas responsabilidades e seus momentos de descanso. O diálogo será um bom aliado nas decisões.");
+                txtPrevisaoEscorpiao.setText("Direcione sua determinação para o que realmente importa. Evite agir por impulso e observe as situações com calma.");
+                txtPrevisaoSagitario.setText("A semana começa com espaço para novas descobertas. Transforme sua vontade de aprender em uma pequena ação prática.");
+                txtPrevisaoCapricornio.setText("Defina suas prioridades e prepare um plano para a semana. A constância pode ajudar você a se aproximar dos seus objetivos.");
+                txtPrevisaoAquario.setText("Uma ideia diferente pode renovar sua rotina. Anote suas inspirações e escolha uma delas para desenvolver com atenção.");
+                txtPrevisaoPeixes.setText("Use sua sensibilidade para perceber suas necessidades. Comece o dia com calma e reserve um momento para sua criatividade.");
+                break;
+
+            case 2: // Terça-feira
+                txtPrevisaoAries.setText("Canalize sua energia para concluir uma tarefa pendente. Nas conversas, pratique a paciência e dê espaço para o outro falar.");
+                txtPrevisaoTouro.setText("Cuide do que você vem construindo. Pequenos ajustes na rotina podem trazer mais conforto e facilitar suas atividades.");
+                txtPrevisaoGemeos.setText("Seu interesse por novidades pode render boas ideias. Para não se dispersar, escolha uma prioridade e dedique atenção a ela.");
+                txtPrevisaoCancer.setText("Demonstre carinho por meio de atitudes simples. Também vale expressar suas necessidades com clareza e gentileza.");
+                txtPrevisaoLeao.setText("Use sua confiança para enfrentar um desafio. Trabalhar em parceria pode deixar o caminho mais agradável e produtivo.");
+                txtPrevisaoVirgem.setText("Observe os detalhes, mas não deixe a busca pela perfeição impedir seu progresso. Faça o melhor possível com o tempo disponível.");
+                txtPrevisaoLibra.setText("Uma conversa tranquila pode ajudar a esclarecer uma dúvida. Considere diferentes opiniões sem esquecer o que é importante para você.");
+                txtPrevisaoEscorpiao.setText("O dia convida à concentração. Dedique-se a uma atividade importante e procure compreender os fatos antes de tirar conclusões.");
+                txtPrevisaoSagitario.setText("Experimente uma maneira diferente de realizar suas tarefas. A novidade pode trazer motivação, desde que você mantenha seus compromissos.");
+                txtPrevisaoCapricornio.setText("Reconheça o esforço que você já fez. Reorganize o que for necessário e continue avançando sem exigir resultados imediatos.");
+                txtPrevisaoAquario.setText("Compartilhar ideias pode enriquecer seus projetos. Esteja aberto a sugestões e transforme uma inspiração em algo concreto.");
+                txtPrevisaoPeixes.setText("Dê espaço à imaginação, mantendo atenção às tarefas do dia. Uma lista simples pode ajudar a organizar suas ideias.");
+                break;
+
+            case 3: // Quarta-feira
+                txtPrevisaoAries.setText("Faça uma pausa para avaliar o andamento da semana. Ajustar seus planos pode ser mais útil do que tentar resolver tudo de uma vez.");
+                txtPrevisaoTouro.setText("Valorize a constância, mas permita pequenas mudanças. Uma nova forma de fazer algo pode tornar sua rotina mais leve.");
+                txtPrevisaoGemeos.setText("A troca de conhecimentos pode movimentar seu dia. Tire dúvidas e procure concluir uma ideia antes de começar outra.");
+                txtPrevisaoCancer.setText("Observe como você está se sentindo e respeite seus limites. Um momento de tranquilidade pode ajudar a reorganizar seus pensamentos.");
+                txtPrevisaoLeao.setText("Reconheça suas conquistas e compartilhe o mérito com quem ajudou. A generosidade pode fortalecer suas relações.");
+                txtPrevisaoVirgem.setText("Revise suas tarefas e simplifique o que puder. Nem tudo precisa sair exatamente como você planejou para ter valor.");
+                txtPrevisaoLibra.setText("Procure equilibrar o tempo dedicado aos outros e a você. Dizer o que precisa com respeito pode evitar mal-entendidos.");
+                txtPrevisaoEscorpiao.setText("Use sua persistência para superar uma dificuldade. Se algo não estiver funcionando, considere mudar a estratégia.");
+                txtPrevisaoSagitario.setText("Encontre motivação em uma nova pergunta ou descoberta. Aproveite a curiosidade para aprofundar um assunto de seu interesse.");
+                txtPrevisaoCapricornio.setText("Confira o que já foi realizado e reorganize as próximas etapas. Inclua pausas no planejamento para manter um ritmo sustentável.");
+                txtPrevisaoAquario.setText("Seu olhar criativo pode ajudar a resolver um problema cotidiano. Teste uma solução simples e observe o resultado.");
+                txtPrevisaoPeixes.setText("Transforme sua inspiração em uma atividade prática. Escrever, desenhar ou ouvir música pode tornar o dia mais agradável.");
+                break;
+
+            case 4: // Quinta-feira
+                txtPrevisaoAries.setText("Tome a iniciativa em uma tarefa que você vem adiando. Antes de agir, pense nas etapas e nas pessoas envolvidas.");
+                txtPrevisaoTouro.setText("O dia favorece o cuidado com seus projetos pessoais. Reserve um tempo para algo que traga satisfação e tenha significado para você.");
+                txtPrevisaoGemeos.setText("Expresse suas ideias com clareza e atenção. Escutar até o fim pode ser tão importante quanto encontrar as palavras certas.");
+                txtPrevisaoCancer.setText("Aproxime-se de pessoas com quem você se sente à vontade. Uma troca sincera pode trazer acolhimento e novas perspectivas.");
+                txtPrevisaoLeao.setText("Coloque sua criatividade em movimento. Encare um desafio com confiança, mantendo abertura para aprender durante o processo.");
+                txtPrevisaoVirgem.setText("Aproveite para resolver pequenas pendências. Organizar seu espaço pode facilitar a concentração nas próximas atividades.");
+                txtPrevisaoLibra.setText("Reflita sobre uma decisão com calma. Considere suas prioridades e evite assumir compromissos apenas para agradar.");
+                txtPrevisaoEscorpiao.setText("Observe suas reações antes de responder a uma situação difícil. Uma atitude ponderada pode tornar a conversa mais construtiva.");
+                txtPrevisaoSagitario.setText("Dê um passo em direção a um objetivo que desperte entusiasmo. Planejar os detalhes ajudará a transformar vontade em ação.");
+                txtPrevisaoCapricornio.setText("Sua dedicação ganha sentido quando você reconhece o próprio progresso. Valorize as etapas concluídas e ajuste as expectativas.");
+                txtPrevisaoAquario.setText("Busque colaboração para desenvolver uma ideia. Diferentes pontos de vista podem revelar possibilidades que você ainda não considerou.");
+                txtPrevisaoPeixes.setText("Use sua empatia nas relações, sem deixar suas necessidades de lado. Encontre um momento para descansar e reorganizar as ideias.");
+                break;
+
+            case 5: // Sexta-feira
+                txtPrevisaoAries.setText("Concentre sua energia nas prioridades que ainda precisam de atenção. Depois, permita-se aproveitar um momento de diversão.");
+                txtPrevisaoTouro.setText("Finalize o que estiver ao seu alcance e valorize o esforço da semana. Um programa tranquilo pode ser uma boa forma de relaxar.");
+                txtPrevisaoGemeos.setText("O dia convida a conversas leves e boas trocas. Organize as pendências antes de se envolver em novos planos.");
+                txtPrevisaoCancer.setText("Celebre os pequenos momentos e procure companhia acolhedora. Respeite também sua vontade de ficar em um ambiente tranquilo.");
+                txtPrevisaoLeao.setText("Compartilhe sua alegria e reconheça as conquistas das pessoas próximas. Um encontro descontraído pode deixar o dia especial.");
+                txtPrevisaoVirgem.setText("Encerre a semana reconhecendo o que foi possível realizar. Deixe anotado o que ficou para depois e aproveite seu descanso.");
+                txtPrevisaoLibra.setText("Reserve espaço para atividades que tragam prazer e equilíbrio. Escolha um programa que combine com sua disposição.");
+                txtPrevisaoEscorpiao.setText("Deixe as preocupações de lado por alguns instantes e observe o que trouxe satisfação nesta semana. Valorize suas boas experiências.");
+                txtPrevisaoSagitario.setText("Sua vontade de sair da rotina pode inspirar um programa diferente. Explore possibilidades e combine os planos com responsabilidade.");
+                txtPrevisaoCapricornio.setText("Reconheça o trabalho realizado e estabeleça um limite para encerrar as tarefas. Descansar também faz parte de uma boa rotina.");
+                txtPrevisaoAquario.setText("Uma atividade diferente pode renovar seu ânimo. Convide alguém para compartilhar uma ideia, um jogo ou uma conversa.");
+                txtPrevisaoPeixes.setText("Encontre leveza em algo simples, como uma música ou uma boa conversa. Dê atenção ao que ajuda você a se sentir bem.");
+                break;
+
+            case 6: // Sábado
+                txtPrevisaoAries.setText("Aproveite o dia para movimentar seus projetos pessoais ou experimentar um hobby. Escolha algo que combine com sua energia.");
+                txtPrevisaoTouro.setText("Desfrute dos pequenos prazeres com calma. Cuidar do seu espaço ou preparar algo de que gosta pode tornar o dia agradável.");
+                txtPrevisaoGemeos.setText("Explore sua curiosidade em uma leitura, passeio ou conversa. Permita-se descobrir algo sem a obrigação de dominar tudo.");
+                txtPrevisaoCancer.setText("Dedique tempo aos vínculos que fazem bem a você. Um gesto de carinho pode tornar um momento comum mais especial.");
+                txtPrevisaoLeao.setText("Expresse sua criatividade e aproveite atividades que tragam alegria. O dia pode ganhar cor com um projeto feito por prazer.");
+                txtPrevisaoVirgem.setText("Equilibre pequenas tarefas com momentos de lazer. Permita que parte do dia aconteça sem um planejamento detalhado.");
+                txtPrevisaoLibra.setText("Busque ambientes e companhias que tragam tranquilidade. Aproveite para apreciar arte, música ou uma conversa agradável.");
+                txtPrevisaoEscorpiao.setText("Reserve tempo para um interesse pessoal. Dedicar atenção ao que você gosta pode ser uma boa maneira de aproveitar o sábado.");
+                txtPrevisaoSagitario.setText("Saia um pouco da rotina e conheça algo diferente. Uma descoberta simples já pode despertar seu entusiasmo.");
+                txtPrevisaoCapricornio.setText("Dê espaço à vida além das obrigações. Um hobby ou um momento com pessoas queridas pode tornar seu dia mais leve.");
+                txtPrevisaoAquario.setText("Experimente criar, inventar ou aprender algo por diversão. Compartilhar essa experiência pode render boas lembranças.");
+                txtPrevisaoPeixes.setText("Aproveite sua imaginação em uma atividade artística ou relaxante. Respeite seu ritmo e escolha um programa acolhedor.");
+                break;
+
+            case 7: // Domingo
+                txtPrevisaoAries.setText("Desacelere e escolha suas prioridades para a próxima semana. Um planejamento simples pode ajudar a direcionar sua energia.");
+                txtPrevisaoTouro.setText("Aproveite o domingo para descansar e organizar apenas o necessário. Valorize a tranquilidade e os momentos de conforto.");
+                txtPrevisaoGemeos.setText("Dê uma pausa no excesso de informações. Escolha uma atividade leve e anote as ideias que quiser retomar durante a semana.");
+                txtPrevisaoCancer.setText("Cuide do seu espaço e dos vínculos importantes. Um momento de acolhimento pode ajudar a encerrar a semana com serenidade.");
+                txtPrevisaoLeao.setText("Reconheça algo de que você se orgulha nesta semana. Reserve tempo para descansar e aproveitar a companhia de quem você gosta.");
+                txtPrevisaoVirgem.setText("Prepare o básico para os próximos dias sem ocupar todo o domingo. Deixe espaço para o descanso e para os imprevistos.");
+                txtPrevisaoLibra.setText("Reflita sobre o equilíbrio da sua rotina. Pense em uma pequena mudança que permita cuidar melhor dos seus interesses.");
+                txtPrevisaoEscorpiao.setText("Reveja a semana com gentileza e identifique o que aprendeu. Escolha o que deseja levar adiante e o que pode deixar para trás.");
+                txtPrevisaoSagitario.setText("Imagine novas possibilidades e escolha uma meta possível para a semana. Aproveite o presente antes de pensar na próxima aventura.");
+                txtPrevisaoCapricornio.setText("Planeje os próximos dias com metas realistas. Lembre-se de incluir tempo para você e para as pessoas importantes.");
+                txtPrevisaoAquario.setText("Organize suas ideias e selecione uma para explorar nos próximos dias. Aproveite o domingo para renovar suas inspirações.");
+                txtPrevisaoPeixes.setText("Encerre a semana com calma e atenção aos seus sentimentos. Uma atividade tranquila pode ajudar a preparar o ânimo para recomeçar.");
+                break;
+        }
+    } // Fim do método
+
+    public void PreencherMensagem() {
+        // CAPTURAR DIA DA SEMANA
+        int diaSemana = LocalDate.now().getDayOfWeek().getValue();
+
+        // PREENCHER AS MENSAGENS DE TODOS OS SIGNOS
+        switch (diaSemana) {
+            case 1: // Segunda-feira
+                txtMensagemAries.setText("Tenha coragem para começar e paciência para continuar.");
+                txtMensagemTouro.setText("Cada pequeno passo também faz parte de uma grande conquista.");
+                txtMensagemGemeos.setText("Aprender algo novo é abrir uma janela para o mundo.");
+                txtMensagemCancer.setText("Ofereça a si mesmo o carinho que você dedica aos outros.");
+                txtMensagemLeao.setText("Deixe sua luz aparecer nas atitudes que fazem a diferença.");
+                txtMensagemVirgem.setText("Comece com o que você tem e aperfeiçoe ao longo do caminho.");
+                txtMensagemLibra.setText("O equilíbrio começa quando você também escuta suas necessidades.");
+                txtMensagemEscorpiao.setText("Use sua força para construir o que deseja viver.");
+                txtMensagemSagitario.setText("Transforme a vontade de descobrir em coragem para aprender.");
+                txtMensagemCapricornio.setText("Um objetivo fica mais próximo quando você dá o primeiro passo.");
+                txtMensagemAquario.setText("Suas ideias merecem a oportunidade de sair do papel.");
+                txtMensagemPeixes.setText("Dê espaço aos seus sonhos e um pequeno passo na direção deles.");
+                break;
+
+            case 2: // Terça-feira
+                txtMensagemAries.setText("Agir com calma também é uma demonstração de força.");
+                txtMensagemTouro.setText("Respeite seu ritmo sem perder de vista seus objetivos.");
+                txtMensagemGemeos.setText("Uma boa conversa começa com a disposição para escutar.");
+                txtMensagemCancer.setText("Pequenos gestos de carinho podem transformar um dia comum.");
+                txtMensagemLeao.setText("Confie no seu valor, mesmo quando não houver aplausos.");
+                txtMensagemVirgem.setText("Seu esforço tem valor, mesmo quando o resultado não é perfeito.");
+                txtMensagemLibra.setText("Ser gentil não exige deixar suas próprias vontades de lado.");
+                txtMensagemEscorpiao.setText("Mudar de estratégia pode ser o caminho para seguir em frente.");
+                txtMensagemSagitario.setText("Encontre uma descoberta nas pequenas experiências do cotidiano.");
+                txtMensagemCapricornio.setText("A constância cresce quando suas metas respeitam seus limites.");
+                txtMensagemAquario.setText("Uma ideia compartilhada pode ganhar novas possibilidades.");
+                txtMensagemPeixes.setText("Sua sensibilidade pode ser uma ponte para compreender o outro.");
+                break;
+
+            case 3: // Quarta-feira
+                txtMensagemAries.setText("Antes de acelerar, confira se está seguindo a direção que deseja.");
+                txtMensagemTouro.setText("Permita-se mudar sem desvalorizar tudo o que já construiu.");
+                txtMensagemGemeos.setText("Concentre sua atenção no que merece ser concluído hoje.");
+                txtMensagemCancer.setText("Reconhecer o que você sente é uma forma de cuidar de si.");
+                txtMensagemLeao.setText("Celebrar a conquista de outra pessoa não diminui a sua.");
+                txtMensagemVirgem.setText("Você pode fazer um bom trabalho sem controlar cada detalhe.");
+                txtMensagemLibra.setText("Sua opinião merece espaço nas decisões que envolvem sua vida.");
+                txtMensagemEscorpiao.setText("Nem toda resposta precisa ser imediata; permita-se refletir.");
+                txtMensagemSagitario.setText("A curiosidade ganha força quando vem acompanhada de dedicação.");
+                txtMensagemCapricornio.setText("Reconheça o caminho percorrido antes de cobrar o próximo passo.");
+                txtMensagemAquario.setText("Observe o cotidiano: uma solução pode começar em uma pergunta.");
+                txtMensagemPeixes.setText("Transforme uma inspiração de hoje em algo que você possa criar.");
+                break;
+
+            case 4: // Quinta-feira
+                txtMensagemAries.setText("Coragem também é admitir uma dúvida e pedir ajuda.");
+                txtMensagemTouro.setText("Cuide do que importa, mas deixe espaço para o novo.");
+                txtMensagemGemeos.setText("Escolha palavras que esclareçam e aproximem.");
+                txtMensagemCancer.setText("Você pode acolher alguém sem carregar todos os problemas dessa pessoa.");
+                txtMensagemLeao.setText("Liderar também é abrir espaço para outras pessoas brilharem.");
+                txtMensagemVirgem.setText("Simplificar uma tarefa pode ser melhor do que exigir mais de si.");
+                txtMensagemLibra.setText("Uma decisão consciente vale mais do que agradar a todos.");
+                txtMensagemEscorpiao.setText("Direcione sua intensidade para algo que faça sentido para você.");
+                txtMensagemSagitario.setText("Sonhar com o futuro fica mais interessante quando você age no presente.");
+                txtMensagemCapricornio.setText("Disciplina e descanso podem fazer parte do mesmo planejamento.");
+                txtMensagemAquario.setText("Escutar uma opinião diferente pode enriquecer sua própria ideia.");
+                txtMensagemPeixes.setText("Cuidar dos seus limites também é um gesto de amor.");
+                break;
+
+            case 5: // Sexta-feira
+                txtMensagemAries.setText("Valorize o que conseguiu realizar e permita-se respirar.");
+                txtMensagemTouro.setText("Aprecie as pequenas conquistas que sua dedicação tornou possíveis.");
+                txtMensagemGemeos.setText("Compartilhe uma boa ideia e guarde espaço para uma boa risada.");
+                txtMensagemCancer.setText("Encontre alegria nos encontros e nos gestos mais simples.");
+                txtMensagemLeao.setText("Celebre suas vitórias sem precisar compará-las às de ninguém.");
+                txtMensagemVirgem.setText("O que ficou pendente não apaga tudo o que você já fez.");
+                txtMensagemLibra.setText("Escolha um momento do dia para fazer algo de que você gosta.");
+                txtMensagemEscorpiao.setText("Dê atenção ao que trouxe leveza para sua semana.");
+                txtMensagemSagitario.setText("A alegria pode estar em um plano simples com uma boa companhia.");
+                txtMensagemCapricornio.setText("Seu valor vai além da quantidade de tarefas que você conclui.");
+                txtMensagemAquario.setText("Deixe a criatividade participar também dos seus momentos de lazer.");
+                txtMensagemPeixes.setText("Permita-se apreciar o presente sem resolver tudo de uma vez.");
+                break;
+
+            case 6: // Sábado
+                txtMensagemAries.setText("Use sua energia para viver algo que desperte seu entusiasmo.");
+                txtMensagemTouro.setText("Desacelere o suficiente para perceber o que faz bem a você.");
+                txtMensagemGemeos.setText("Explore uma curiosidade sem transformar a descoberta em obrigação.");
+                txtMensagemCancer.setText("Uma lembrança feliz pode começar com um momento de atenção.");
+                txtMensagemLeao.setText("Faça algo por prazer, mesmo que ninguém esteja olhando.");
+                txtMensagemVirgem.setText("Você também merece um dia com menos cobranças.");
+                txtMensagemLibra.setText("Reserve tempo para as pessoas e atividades que trazem paz.");
+                txtMensagemEscorpiao.setText("Permita-se viver momentos leves sem precisar explicar tudo.");
+                txtMensagemSagitario.setText("Descobrir algo diferente pode começar bem perto de você.");
+                txtMensagemCapricornio.setText("Descansar não diminui sua dedicação; faz parte de cuidar de si.");
+                txtMensagemAquario.setText("Experimente uma ideia divertida e aproveite o processo.");
+                txtMensagemPeixes.setText("Encontre beleza nos detalhes que a pressa costuma esconder.");
+                break;
+
+            case 7: // Domingo
+                txtMensagemAries.setText("Prepare o próximo passo, mas aproveite o lugar onde está agora.");
+                txtMensagemTouro.setText("Que seu descanso tenha o mesmo espaço que seus compromissos.");
+                txtMensagemGemeos.setText("Dê uma pausa às informações e escute seus próprios pensamentos.");
+                txtMensagemCancer.setText("Crie um momento de acolhimento para encerrar sua semana.");
+                txtMensagemLeao.setText("Lembre-se de uma atitude sua que merece reconhecimento.");
+                txtMensagemVirgem.setText("Planeje o necessário e deixe espaço para a vida acontecer.");
+                txtMensagemLibra.setText("Recomeçar pode ser escolher uma rotina mais equilibrada.");
+                txtMensagemEscorpiao.setText("Leve os aprendizados da semana, sem carregar todas as cobranças.");
+                txtMensagemSagitario.setText("Escolha um motivo para se animar com os próximos dias.");
+                txtMensagemCapricornio.setText("Defina metas possíveis e reconheça cada etapa do caminho.");
+                txtMensagemAquario.setText("Guarde uma ideia que você gostaria de explorar na próxima semana.");
+                txtMensagemPeixes.setText("Recomece com gentileza e respeite o tempo de cada passo.");
+                break;
+        } // Fim do switch
+    } // Fim do PreencherMensagem
+
+    public void CorrigirAreasTextos() {
+        //corrigir Mensagem
+        txtMensagemAries.setLineWrap(true);
+        txtMensagemAries.setLineWrap(true);
+        //corrigir previsão
+        txtPrevisaoAries.setLineWrap(true);
+        txtPrevisaoAries.setLineWrap(true);
+        //corrigir ponto fortes
+        txFortesAries.setLineWrap(true);
+        txFortesAries.setLineWrap(true);
+        //corrigir pontos a melhorar
+        txMelhorarAries.setLineWrap(true);
+        txMelhorarAries.setLineWrap(true);
+
+    }//fim do metodo
+
+    public void CacularSigno() {
+        //capturar dados combobox
+        int dia = Integer.parseInt(cbDia.getSelectedItem().toString());
+        String mes = cbMes.getSelectedItem().toString();
+
+        ImageIcon imagem = null;
+
+        //verificar dia e mes  dos signos com if else
+        if ((mes.equalsIgnoreCase("março") && dia >= 21)
+                || (mes.equalsIgnoreCase("Abril") && dia <= 19)) {
+            signo.setText("Aries");
+            imagem = (ImageIcon) imgSignoPeixes.getIcon();
+        } else if ((mes.equalsIgnoreCase("março") && dia >= 21) || (mes.equalsIgnoreCase("abril") && dia <= 19)) {
+            signo.setText("Áries");
+            imagem = (ImageIcon) imgSignoAries.getIcon();
+        } else if ((mes.equalsIgnoreCase("abril") && dia >= 20) || (mes.equalsIgnoreCase("maio") && dia <= 20)) {
+            signo.setText("Touro");
+            imagem = (ImageIcon) imgSignoTouro.getIcon();
+        } else if ((mes.equalsIgnoreCase("maio") && dia >= 21) || (mes.equalsIgnoreCase("junho") && dia <= 20)) {
+            signo.setText("Gêmeos");
+            imagem = (ImageIcon) imgSignoGemeos.getIcon();
+        } else if ((mes.equalsIgnoreCase("junho") && dia >= 21) || (mes.equalsIgnoreCase("julho") && dia <= 22)) {
+            signo.setText("Câncer");
+            imagem = (ImageIcon) imgSignoCancer.getIcon();
+        } else if ((mes.equalsIgnoreCase("julho") && dia >= 23) || (mes.equalsIgnoreCase("agosto") && dia <= 22)) {
+            signo.setText("Leão");
+            imagem = (ImageIcon) imgSignoLeao.getIcon();
+        } else if ((mes.equalsIgnoreCase("agosto") && dia >= 23) || (mes.equalsIgnoreCase("setembro") && dia <= 22)) {
+            signo.setText("Virgem");
+            imagem = (ImageIcon) imgSignoVirgem.getIcon();
+        } else if ((mes.equalsIgnoreCase("setembro") && dia >= 23) || (mes.equalsIgnoreCase("outubro") && dia <= 22)) {
+            signo.setText("Libra");
+            imagem = (ImageIcon) imgSignoLibra.getIcon();
+        } else if ((mes.equalsIgnoreCase("outubro") && dia >= 23) || (mes.equalsIgnoreCase("novembro") && dia <= 21)) {
+            signo.setText("Escorpião");
+            imagem = (ImageIcon) imgSignoEscorpiao.getIcon();
+        } else if ((mes.equalsIgnoreCase("novembro") && dia >= 22) || (mes.equalsIgnoreCase("dezembro") && dia <= 21)) {
+            signo.setText("Sagitário");
+            imagem = (ImageIcon) imgSignoSagitario.getIcon();
+        } else if ((mes.equalsIgnoreCase("dezembro") && dia >= 22) || (mes.equalsIgnoreCase("janeiro") && dia <= 19)) {
+            signo.setText("Capricórnio");
+            imagem = (ImageIcon) imgSignoCapricornio.getIcon();
+        } else if ((mes.equalsIgnoreCase("janeiro") && dia >= 20) || (mes.equalsIgnoreCase("fevereiro") && dia <= 18)) {
+            signo.setText("Aquário");
+            imagem = (ImageIcon) imgSignoAquario.getIcon();
+        } else if ((mes.equalsIgnoreCase("fevereiro") && dia >= 19) || (mes.equalsIgnoreCase("março") && dia <= 20)) {
+            signo.setText("Peixes");
+            imagem = (ImageIcon) imgSignoPeixes.getIcon();
+        } else {
+            signo.setText("Data Inválida");
+            imagem = null; // Ou uma imagem de erro padrão
+        }
+
+        Image imgRedimencionada = imagem.getImage().getScaledInstance(900, 1000, Image.SCALE_SMOOTH);
+        btnSigno.setIcon(new ImageIcon(imgRedimencionada));
+    }
+
+    public void CalcularCompatibilidade() {
+        // Capturar os dados da ComboBox
+        String signo1 = cbSigno1.getSelectedItem().toString();
+        String signo2 = cbSigno2.getSelectedItem().toString();
+
+        // ÁRIES
+        if (signo1.equalsIgnoreCase("Áries") && signo2.equalsIgnoreCase("Áries")) {
+            tfCompatibilidade.setText("80% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Áries") && signo2.equalsIgnoreCase("Touro")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Áries") && signo2.equalsIgnoreCase("Gêmeos")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Áries") && signo2.equalsIgnoreCase("Câncer")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Áries") && signo2.equalsIgnoreCase("Leão")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Áries") && signo2.equalsIgnoreCase("Virgem")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Áries") && signo2.equalsIgnoreCase("Libra")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Áries") && signo2.equalsIgnoreCase("Escorpião")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Áries") && signo2.equalsIgnoreCase("Sagitário")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Áries") && signo2.equalsIgnoreCase("Capricórnio")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Áries") && signo2.equalsIgnoreCase("Aquário")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Áries") && signo2.equalsIgnoreCase("Peixes")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+
+            // TOURO
+        } else if (signo1.equalsIgnoreCase("Touro") && signo2.equalsIgnoreCase("Áries")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Touro") && signo2.equalsIgnoreCase("Touro")) {
+            tfCompatibilidade.setText("80% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Touro") && signo2.equalsIgnoreCase("Gêmeos")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Touro") && signo2.equalsIgnoreCase("Câncer")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Touro") && signo2.equalsIgnoreCase("Leão")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Touro") && signo2.equalsIgnoreCase("Virgem")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Touro") && signo2.equalsIgnoreCase("Libra")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Touro") && signo2.equalsIgnoreCase("Escorpião")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Touro") && signo2.equalsIgnoreCase("Sagitário")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Touro") && signo2.equalsIgnoreCase("Capricórnio")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Touro") && signo2.equalsIgnoreCase("Aquário")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Touro") && signo2.equalsIgnoreCase("Peixes")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+
+            // GÊMEOS
+        } else if (signo1.equalsIgnoreCase("Gêmeos") && signo2.equalsIgnoreCase("Áries")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Gêmeos") && signo2.equalsIgnoreCase("Touro")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Gêmeos") && signo2.equalsIgnoreCase("Gêmeos")) {
+            tfCompatibilidade.setText("80% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Gêmeos") && signo2.equalsIgnoreCase("Câncer")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Gêmeos") && signo2.equalsIgnoreCase("Leão")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Gêmeos") && signo2.equalsIgnoreCase("Virgem")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Gêmeos") && signo2.equalsIgnoreCase("Libra")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Gêmeos") && signo2.equalsIgnoreCase("Escorpião")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Gêmeos") && signo2.equalsIgnoreCase("Sagitário")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Gêmeos") && signo2.equalsIgnoreCase("Capricórnio")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Gêmeos") && signo2.equalsIgnoreCase("Aquário")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Gêmeos") && signo2.equalsIgnoreCase("Peixes")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+
+            // CÂNCER
+        } else if (signo1.equalsIgnoreCase("Câncer") && signo2.equalsIgnoreCase("Áries")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Câncer") && signo2.equalsIgnoreCase("Touro")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Câncer") && signo2.equalsIgnoreCase("Gêmeos")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Câncer") && signo2.equalsIgnoreCase("Câncer")) {
+            tfCompatibilidade.setText("80% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Câncer") && signo2.equalsIgnoreCase("Leão")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Câncer") && signo2.equalsIgnoreCase("Virgem")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Câncer") && signo2.equalsIgnoreCase("Libra")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Câncer") && signo2.equalsIgnoreCase("Escorpião")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Câncer") && signo2.equalsIgnoreCase("Sagitário")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Câncer") && signo2.equalsIgnoreCase("Capricórnio")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Câncer") && signo2.equalsIgnoreCase("Aquário")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Câncer") && signo2.equalsIgnoreCase("Peixes")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+
+            // LEÃO
+        } else if (signo1.equalsIgnoreCase("Leão") && signo2.equalsIgnoreCase("Áries")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Leão") && signo2.equalsIgnoreCase("Touro")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Leão") && signo2.equalsIgnoreCase("Gêmeos")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Leão") && signo2.equalsIgnoreCase("Câncer")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Leão") && signo2.equalsIgnoreCase("Leão")) {
+            tfCompatibilidade.setText("80% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Leão") && signo2.equalsIgnoreCase("Virgem")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Leão") && signo2.equalsIgnoreCase("Libra")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Leão") && signo2.equalsIgnoreCase("Escorpião")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Leão") && signo2.equalsIgnoreCase("Sagitário")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Leão") && signo2.equalsIgnoreCase("Capricórnio")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Leão") && signo2.equalsIgnoreCase("Aquário")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Leão") && signo2.equalsIgnoreCase("Peixes")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+
+            // VIRGEM
+        } else if (signo1.equalsIgnoreCase("Virgem") && signo2.equalsIgnoreCase("Áries")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Virgem") && signo2.equalsIgnoreCase("Touro")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Virgem") && signo2.equalsIgnoreCase("Gêmeos")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Virgem") && signo2.equalsIgnoreCase("Câncer")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Virgem") && signo2.equalsIgnoreCase("Leão")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Virgem") && signo2.equalsIgnoreCase("Virgem")) {
+            tfCompatibilidade.setText("80% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Virgem") && signo2.equalsIgnoreCase("Libra")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Virgem") && signo2.equalsIgnoreCase("Escorpião")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Virgem") && signo2.equalsIgnoreCase("Sagitário")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Virgem") && signo2.equalsIgnoreCase("Capricórnio")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Virgem") && signo2.equalsIgnoreCase("Aquário")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Virgem") && signo2.equalsIgnoreCase("Peixes")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+
+            // LIBRA
+        } else if (signo1.equalsIgnoreCase("Libra") && signo2.equalsIgnoreCase("Áries")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Libra") && signo2.equalsIgnoreCase("Touro")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Libra") && signo2.equalsIgnoreCase("Gêmeos")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Libra") && signo2.equalsIgnoreCase("Câncer")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Libra") && signo2.equalsIgnoreCase("Leão")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Libra") && signo2.equalsIgnoreCase("Virgem")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Libra") && signo2.equalsIgnoreCase("Libra")) {
+            tfCompatibilidade.setText("80% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Libra") && signo2.equalsIgnoreCase("Escorpião")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Libra") && signo2.equalsIgnoreCase("Sagitário")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Libra") && signo2.equalsIgnoreCase("Capricórnio")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Libra") && signo2.equalsIgnoreCase("Aquário")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Libra") && signo2.equalsIgnoreCase("Peixes")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+
+            // ESCORPIÃO
+        } else if (signo1.equalsIgnoreCase("Escorpião") && signo2.equalsIgnoreCase("Áries")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Escorpião") && signo2.equalsIgnoreCase("Touro")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Escorpião") && signo2.equalsIgnoreCase("Gêmeos")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Escorpião") && signo2.equalsIgnoreCase("Câncer")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Escorpião") && signo2.equalsIgnoreCase("Leão")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Escorpião") && signo2.equalsIgnoreCase("Virgem")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Escorpião") && signo2.equalsIgnoreCase("Libra")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Escorpião") && signo2.equalsIgnoreCase("Escorpião")) {
+            tfCompatibilidade.setText("80% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Escorpião") && signo2.equalsIgnoreCase("Sagitário")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Escorpião") && signo2.equalsIgnoreCase("Capricórnio")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Escorpião") && signo2.equalsIgnoreCase("Aquário")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Escorpião") && signo2.equalsIgnoreCase("Peixes")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+
+            // SAGITÁRIO
+        } else if (signo1.equalsIgnoreCase("Sagitário") && signo2.equalsIgnoreCase("Áries")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Sagitário") && signo2.equalsIgnoreCase("Touro")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Sagitário") && signo2.equalsIgnoreCase("Gêmeos")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Sagitário") && signo2.equalsIgnoreCase("Câncer")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Sagitário") && signo2.equalsIgnoreCase("Leão")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Sagitário") && signo2.equalsIgnoreCase("Virgem")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Sagitário") && signo2.equalsIgnoreCase("Libra")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Sagitário") && signo2.equalsIgnoreCase("Escorpião")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Sagitário") && signo2.equalsIgnoreCase("Sagitário")) {
+            tfCompatibilidade.setText("80% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Sagitário") && signo2.equalsIgnoreCase("Capricórnio")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Sagitário") && signo2.equalsIgnoreCase("Aquário")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Sagitário") && signo2.equalsIgnoreCase("Peixes")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+
+            // CAPRICÓRNIO
+        } else if (signo1.equalsIgnoreCase("Capricórnio") && signo2.equalsIgnoreCase("Áries")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Capricórnio") && signo2.equalsIgnoreCase("Touro")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Capricórnio") && signo2.equalsIgnoreCase("Gêmeos")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Capricórnio") && signo2.equalsIgnoreCase("Câncer")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Capricórnio") && signo2.equalsIgnoreCase("Leão")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Capricórnio") && signo2.equalsIgnoreCase("Virgem")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Capricórnio") && signo2.equalsIgnoreCase("Libra")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Capricórnio") && signo2.equalsIgnoreCase("Escorpião")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Capricórnio") && signo2.equalsIgnoreCase("Sagitário")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Capricórnio") && signo2.equalsIgnoreCase("Capricórnio")) {
+            tfCompatibilidade.setText("80% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Capricórnio") && signo2.equalsIgnoreCase("Aquário")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Capricórnio") && signo2.equalsIgnoreCase("Peixes")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+
+            // AQUÁRIO
+        } else if (signo1.equalsIgnoreCase("Aquário") && signo2.equalsIgnoreCase("Áries")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Aquário") && signo2.equalsIgnoreCase("Touro")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Aquário") && signo2.equalsIgnoreCase("Gêmeos")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Aquário") && signo2.equalsIgnoreCase("Câncer")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Aquário") && signo2.equalsIgnoreCase("Leão")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Aquário") && signo2.equalsIgnoreCase("Virgem")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Aquário") && signo2.equalsIgnoreCase("Libra")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Aquário") && signo2.equalsIgnoreCase("Escorpião")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Aquário") && signo2.equalsIgnoreCase("Sagitário")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Aquário") && signo2.equalsIgnoreCase("Capricórnio")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Aquário") && signo2.equalsIgnoreCase("Aquário")) {
+            tfCompatibilidade.setText("80% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Aquário") && signo2.equalsIgnoreCase("Peixes")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+
+            // PEIXES
+        } else if (signo1.equalsIgnoreCase("Peixes") && signo2.equalsIgnoreCase("Áries")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Peixes") && signo2.equalsIgnoreCase("Touro")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Peixes") && signo2.equalsIgnoreCase("Gêmeos")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Peixes") && signo2.equalsIgnoreCase("Câncer")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Peixes") && signo2.equalsIgnoreCase("Leão")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Peixes") && signo2.equalsIgnoreCase("Virgem")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Peixes") && signo2.equalsIgnoreCase("Libra")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Peixes") && signo2.equalsIgnoreCase("Escorpião")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Peixes") && signo2.equalsIgnoreCase("Sagitário")) {
+            tfCompatibilidade.setText("50% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Peixes") && signo2.equalsIgnoreCase("Capricórnio")) {
+            tfCompatibilidade.setText("90% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Peixes") && signo2.equalsIgnoreCase("Aquário")) {
+            tfCompatibilidade.setText("70% compatibilidade!");
+        } else if (signo1.equalsIgnoreCase("Peixes") && signo2.equalsIgnoreCase("Peixes")) {
+            tfCompatibilidade.setText("80% compatibilidade!");
+
+        }
+
+    }// Fim do CalcularCompatibilidade
+
+    public void TocarMusica() {
+        try {
+            // Se a música já foi carregada, continuar a reprodução
+            if (musica != null && musica.isOpen()) {
+                musica.start();
+                return;
+            }
+
+            // Localizar o arquivo dentro do projeto
+            java.net.URL arquivo = getClass().getResource("/musica/musica.wav");
+
+            if (arquivo == null) {
+                JOptionPane.showMessageDialog(this, "Arquivo de música não encontrado!");
+                return;
+            }
+
+            // Abrir o áudio e carregar a música
+            try (AudioInputStream audio = AudioSystem.getAudioInputStream(arquivo)) {
+                musica = AudioSystem.getClip();
+                musica.open(audio);
+            }
+
+            // Iniciar a reprodução
+            musica.start();
+
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Erro ao tocar a música: " + erro.getMessage()
+            );
+        }
+    }// Fim do TocarMusica
+
+    public void PausarMusica() {
+        if (musica != null && musica.isOpen()) {
+            // Pausar na posição atual
+            musica.stop();
+        }
+    }// Fim do PausarMusica
+
+    public void PararMusica() {
+        if (musica != null && musica.isOpen()) {
+            // Parar e voltar ao início
+            musica.stop();
+            musica.setFramePosition(0);
+        }
+    }// Fim do PararMusica
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -437,6 +798,8 @@ import javax.swing.ImageIcon;
         compatibilidade = new javax.swing.JLabel();
         btnSigno = new javax.swing.JButton();
         tfCompatibilidade = new javax.swing.JTextField();
+        btnplay = new javax.swing.JButton();
+        btnpause = new javax.swing.JButton();
         fundoInicio = new javax.swing.JLabel();
         aries = new javax.swing.JPanel();
         areaCaracteristicas = new javax.swing.JPanel();
@@ -1115,25 +1478,39 @@ import javax.swing.ImageIcon;
 
         tfCompatibilidade.setBackground(new java.awt.Color(153, 153, 153));
 
+        btnplay.setBackground(new java.awt.Color(102, 255, 0));
+        btnplay.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
+        btnplay.setText("Play");
+        btnplay.addActionListener(this::btnplayActionPerformed);
+
+        btnpause.setBackground(new java.awt.Color(255, 51, 51));
+        btnpause.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
+        btnpause.setText("Pausar");
+        btnpause.addActionListener(this::btnpauseActionPerformed);
+
         javax.swing.GroupLayout areaResultadoLayout = new javax.swing.GroupLayout(areaResultado);
         areaResultado.setLayout(areaResultadoLayout);
         areaResultadoLayout.setHorizontalGroup(
             areaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, areaResultadoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSigno, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
             .addGroup(areaResultadoLayout.createSequentialGroup()
-                .addGap(139, 139, 139)
+                .addContainerGap(307, Short.MAX_VALUE)
                 .addComponent(signo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, areaResultadoLayout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
+                .addContainerGap(72, Short.MAX_VALUE)
                 .addGroup(areaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, areaResultadoLayout.createSequentialGroup()
-                        .addComponent(btnSigno, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, areaResultadoLayout.createSequentialGroup()
-                        .addGroup(areaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(compatibilidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(tfCompatibilidade))
-                        .addGap(62, 62, 62))))
+                    .addGroup(areaResultadoLayout.createSequentialGroup()
+                        .addComponent(btnplay)
+                        .addGap(125, 125, 125)
+                        .addComponent(btnpause))
+                    .addGroup(areaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(compatibilidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tfCompatibilidade)))
+                .addGap(62, 62, 62))
         );
         areaResultadoLayout.setVerticalGroup(
             areaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1142,11 +1519,15 @@ import javax.swing.ImageIcon;
                 .addComponent(signo)
                 .addGap(26, 26, 26)
                 .addComponent(btnSigno, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(compatibilidade)
                 .addGap(45, 45, 45)
-                .addComponent(tfCompatibilidade, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(107, 107, 107))
+                .addComponent(tfCompatibilidade, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64)
+                .addGroup(areaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnplay, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnpause, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(103, 103, 103))
         );
 
         inicio.add(areaResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 20, 410, 900));
@@ -4697,6 +5078,14 @@ import javax.swing.ImageIcon;
         CacularSigno();
     }//GEN-LAST:event_btnDescobrirSignoActionPerformed
 
+    private void btnplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnplayActionPerformed
+        TocarMusica();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnplayActionPerformed
+
+    private void btnpauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpauseActionPerformed
+        PausarMusica();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnpauseActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4828,6 +5217,8 @@ import javax.swing.ImageIcon;
     private javax.swing.JButton btnCopiarMsgVirgem;
     private javax.swing.JButton btnDescobrirSigno;
     private javax.swing.JButton btnSigno;
+    private javax.swing.JButton btnpause;
+    private javax.swing.JButton btnplay;
     private javax.swing.JPanel cancer;
     private javax.swing.JPanel capricornio;
     private javax.swing.JComboBox<String> cbDia;
